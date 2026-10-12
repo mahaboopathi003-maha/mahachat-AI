@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050816">
+  <title>Maha AI — Your Smart AI Assistant</title>
+  <meta name="description" content="Chat with Maha AI, your smart AI assistant.">
+  <style>
+    :root{--bg:#050816;--panel:#0a1024;--cyan:#00e5ff;--purple:#b44cff;--muted:#aab6d3;--line:rgba(0,229,255,.24)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 10%,#10194a 0,transparent 38%),radial-gradient(ellipse at 95% 45%,#210b43 0,transparent 32%),var(--bg);color:#f5f7ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1220px,94%);margin:auto}
+    header{position:sticky;top:0;z-index:5;background:rgba(5,8,22,.86);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:78px}.brand{display:flex;align-items:center;gap:12px;font-weight:850;font-size:1.35rem;letter-spacing:-.04em}.botlogo{width:45px;height:45px;border:1px solid var(--cyan);border-radius:15px;display:grid;place-items:center;color:var(--cyan);font-size:25px;box-shadow:0 0 22px #00e5ff30;background:#06152b}.brand small{display:block;color:var(--muted);font-size:.72rem;font-weight:500;letter-spacing:0}.navlinks{display:flex;gap:24px;color:#d6def5;font-size:.92rem}.navlinks a:hover{color:var(--cyan)}.pill{border:1px solid var(--cyan);border-radius:999px;padding:11px 16px;color:var(--cyan);font-size:.86rem;white-space:nowrap}
+    main{padding:38px 0 28px}.hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:32px;align-items:center;min-height:570px}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #b44cff60;background:#b44cff13;border-radius:99px;padding:8px 12px;color:#d9a7ff;font-size:.8rem}.eyebrow i{width:7px;height:7px;background:#24ffc6;border-radius:50%;box-shadow:0 0 12px #24ffc6}.intro h1{font-size:clamp(2.8rem,5.6vw,5rem);line-height:.99;letter-spacing:-.065em;margin:20px 0}.gradient{background:linear-gradient(100deg,var(--cyan),#a7b8ff 55%,#d17bff);-webkit-background-clip:text;background-clip:text;color:transparent}.intro p{color:var(--muted);font-size:1.06rem;line-height:1.8;max-width:510px}.stats{display:flex;gap:24px;flex-wrap:wrap;margin:28px 0;color:#e7edff}.stats strong{display:block;color:var(--cyan);font-size:1.08rem}.stats span{font-size:.82rem;color:var(--muted)}.cta{border:0;display:inline-flex;align-items:center;gap:10px;padding:14px 21px;border-radius:14px;background:linear-gradient(100deg,#00bfe9,#6555ff);color:white;font-weight:750;box-shadow:0 0 28px #00cfff30;cursor:pointer}.cta:hover{filter:brightness(1.13);transform:translateY(-1px)}
+    .chatcard{border:1px solid #00e5ff80;border-radius:24px;background:linear-gradient(145deg,#081329ed,#090a20ed);box-shadow:0 0 35px #00d9ff12, inset 0 0 25px #273a6a12;overflow:hidden;min-height:510px;display:flex;flex-direction:column}.chathead{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.chatidentity{display:flex;align-items:center;gap:12px}.chatidentity .botlogo{width:42px;height:42px;border-radius:50%}.chatidentity strong{display:block}.chatidentity small{color:#21f5bd;font-size:.78rem}.headactions{display:flex;gap:8px}.iconbtn{border:1px solid #273858;background:#0b1630;color:#dce8ff;border-radius:10px;padding:9px 11px;cursor:pointer}.iconbtn:hover{border-color:var(--cyan)}.messages{padding:20px;display:flex;flex-direction:column;gap:15px;flex:1;min-height:285px;max-height:420px;overflow:auto}.msg{display:flex;gap:9px;align-items:flex-start;max-width:94%}.msg.user{align-self:flex-end;flex-direction:row-reverse}.avatar{width:30px;height:30px;flex:0 0 30px;border:1px solid #00dfff80;border-radius:50%;display:grid;place-items:center;font-size:15px;background:#071a32}.bubble{background:#111d38;border:1px solid #263858;border-radius:5px 16px 16px 16px;padding:12px 14px;line-height:1.55;color:#edf2ff;white-space:pre-wrap;overflow-wrap:anywhere}.user .bubble{background:linear-gradient(135deg,#3e22a7,#075db8);border-color:#7965ff;border-radius:16px 5px 16px 16px}.typing{color:var(--cyan);font-size:.88rem;padding:0 20px 12px;display:none}.composer{display:flex;gap:10px;align-items:flex-end;padding:15px;border-top:1px solid var(--line);background:#060b1b}.composer textarea{flex:1;resize:none;min-height:48px;max-height:130px;border-radius:14px;border:1px solid #263858;background:#070f23;color:white;padding:14px;font:inherit;outline:none}.composer textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #00e5ff12}.send{width:49px;height:49px;border:0;border-radius:14px;color:#031021;background:linear-gradient(135deg,var(--cyan),#7c6bff);font-size:1.25rem;font-weight:900;cursor:pointer}.send:disabled{opacity:.45;cursor:wait}.hint{font-size:.75rem;color:#7f8cac;padding:0 18px 13px;text-align:center}
+    .features{padding:34px 0 55px}.sectiontitle{text-align:center;font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.04em;margin:0 0 8px}.subtitle{text-align:center;color:var(--muted);margin:0 0 26px}.featuregrid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.feature{border:1px solid #24355b;background:linear-gradient(145deg,#0a1229,#080b1b);border-radius:18px;padding:22px 19px;min-height:155px}.featureicon{font-size:1.6rem;color:var(--cyan)}.feature h3{margin:12px 0 7px;font-size:1rem}.feature p{margin:0;color:var(--muted);line-height:1.6;font-size:.86rem}
+    footer{border-top:1px solid var(--line);padding:23px 0;color:var(--muted);font-size:.85rem}.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.foot strong{color:#eaf4ff}.notice{font-size:.8rem;color:#91a1c2;line-height:1.5;margin:14px auto 0;max-width:850px;text-align:center}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;gap:24px;padding-top:20px}.intro{text-align:center}.intro p{margin-inline:auto}.stats{justify-content:center}.featuregrid{grid-template-columns:repeat(2,1fr)}.navlinks{gap:13px}.chatcard{min-height:490px}}
+    @media(max-width:560px){.nav{min-height:68px}.navlinks{display:none}.brand{font-size:1.12rem}.pill{padding:9px 11px;font-size:.75rem}main{padding-top:18px}.hero{min-height:0}.intro h1{font-size:3rem}.intro p{font-size:.96rem}.stats{gap:18px}.chatcard{border-radius:18px;min-height:470px}.chathead{padding:13px}.messages{padding:13px;min-height:280px}.bubble{font-size:.91rem;padding:10px 11px}.composer{padding:10px;gap:7px}.composer textarea{padding:12px}.featuregrid{grid-template-columns:1fr 1fr;gap:9px}.feature{padding:15px 12px;min-height:160px}.feature h3{font-size:.9rem}.feature p{font-size:.79rem}.foot{justify-content:center;text-align:center}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><span class="botlogo">✦</span><span>Maha <span class="gradient">AI</span><small>Your smart AI assistant</small></span></a>
+    <nav class="navlinks"><a href="#home">Home</a><a href="#chat">Chat</a><a href="#features">Features</a><a href="#about">About</a></nav>
+    <a class="pill" href="#chat">✦ Start chatting</a>
+  </div>
+</header>
+<main class="wrap" id="home">
+  <section class="hero">
+    <div class="intro">
+      <span class="eyebrow"><i></i> YOUR PERSONAL AI ASSISTANT</span>
+      <h1>Meet your<br><span class="gradient">Maha AI</span></h1>
+      <p>Ask questions, learn coding, brainstorm projects, or get help with everyday tasks. A simple, smart chat experience made for you.</p>
+      <div class="stats"><div><strong>✦ Smart</strong><span>Helpful answers</span></div><div><strong>↯ Fast</strong><span>Quick replies</span></div><div><strong>⌁ Secure</strong><span>Key stays private</span></div></div>
+      <a class="cta" href="#chat">▣ Start chatting <span>→</span></a>
+    </div>
+    <section class="chatcard" id="chat" aria-label="Maha AI chat">
+      <div class="chathead">
+        <div class="chatidentity"><span class="botlogo">✦</span><div><strong>Maha AI Chatbot</strong><small>● Ready to help</small></div></div>
+        <div class="headactions"><button class="iconbtn" id="newChat" title="New chat" aria-label="New chat">＋ New</button></div>
+      </div>
+      <div class="messages" id="messages" aria-live="polite">
+        <div class="msg"><div class="avatar">✦</div><div class="bubble">Hi! I'm Maha AI 🤖<br>Nice to meet you! Ask me about coding, studies, ideas, or anything you're curious about.</div></div>
+      </div>
+      <div class="typing" id="typing">Maha AI is thinking…</div>
+      <form class="composer" id="chatForm">
+        <textarea id="prompt" rows="1" placeholder="Message Maha AI…" aria-label="Message Maha AI" maxlength="4000"></textarea>
+        <button class="send" id="send" type="submit" aria-label="Send message">➤</button>
+      </form>
+      <div class="hint">Enter to send · Shift + Enter for a new line</div>
+    </section>
+  </section>
+  <section class="features" id="features">
+    <h2 class="sectiontitle">Why <span class="gradient">Maha AI?</span></h2>
+    <p class="subtitle">A clean, modern space for your next question.</p>
+    <div class="featuregrid">
+      <article class="feature"><div class="featureicon">ϟ</div><h3>Smart assistance</h3><p>Get explanations, ideas, and coding help in one place.</p></article>
+      <article class="feature"><div class="featureicon">♢</div><h3>Private API key</h3><p>Your API key is stored on the server, never in this page.</p></article>
+      <article class="feature"><div class="featureicon">▣</div><h3>Mobile friendly</h3><p>Responsive layout for phones, tablets, and desktops.</p></article>
+      <article class="feature"><div class="featureicon">✧</div><h3>Made by Maha</h3><p>A personal project you can keep improving and making your own.</p></article>
+    </div>
+    <p class="notice" id="about">Maha AI uses an AI API when configured. AI responses may be inaccurate; don't share passwords, private details, or other sensitive information in chat.</p>
+  </section>
+</main>
+<footer><div class="wrap foot"><div><strong>Maha AI</strong> · Your smart AI assistant</div><div>Designed with ✦ by Maha</div><div>© <span id="year"></span> Maha AI</div></div></footer>
+<script>
+const form=document.getElementById('chatForm'),input=document.getElementById('prompt'),messages=document.getElementById('messages'),send=document.getElementById('send'),typing=document.getElementById('typing');
+document.getElementById('year').textContent=new Date().getFullYear();
+let history=[];
+function addMessage(role,text){const row=document.createElement('div');row.className='msg '+(role==='user'?'user':'');const avatar=document.createElement('div');avatar.className='avatar';avatar.textContent=role==='user'?'●':'✦';const bubble=document.createElement('div');bubble.className='bubble';bubble.textContent=text;row.append(avatar,bubble);messages.append(row);messages.scrollTop=messages.scrollHeight;return bubble}
+function resetChat(){history=[];messages.replaceChildren();addMessage('assistant',"Hi! I'm Maha AI 🤖\\nAsk me about coding, studies, projects, or anything you're curious about.");input.focus()}
+document.getElementById('newChat').addEventListener('click',resetChat);
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form.requestSubmit()}});
+input.addEventListener('input',()=>{input.style.height='auto';input.style.height=Math.min(input.scrollHeight,130)+'px'});
+form.addEventListener('submit',async e=>{
+ e.preventDefault();const text=input.value.trim();if(!text||send.disabled)return;
+ addMessage('user',text);history.push({role:'user',content:text});input.value='';input.style.height='auto';send.disabled=true;typing.style.display='block';
+ try{
+  const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history})});
+  const data=await response.json().catch(()=>({}));
+  if(!response.ok)throw new Error(data.error||'Request failed. Check your server setup.');
+  const answer=data.reply||'Sorry, I could not create a reply.';history.push({role:'assistant',content:answer});addMessage('assistant',answer);
+ }catch(err){addMessage('assistant','Could not connect to Maha AI. '+(err.message||'Please try again later.'));history.pop()}
+ finally{typing.style.display='none';send.disabled=false;input.focus()}
+});
+</script>
+</body>
+</html>
